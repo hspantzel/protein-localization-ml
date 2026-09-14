@@ -10,15 +10,22 @@ def amino_acid_composition(sequence: str) -> dict[str, float]:
     """Calculate the fraction of each amino acid in a protein sequence."""
 
     sequence = sequence.strip().upper()
+
+    if not sequence:
+        raise ValueError("Sequence is empty.")
+
+    invalid_amino_acids = set(sequence) - set(AMINO_ACIDS)
+
+    if invalid_amino_acids:
+        invalid = ", ".join(sorted(invalid_amino_acids))
+        raise ValueError(
+            f"Sequence contains invalid amino acids: {invalid}"
+        )
+
     counts = Counter(sequence)
 
-    valid_length = sum(counts[aa] for aa in AMINO_ACIDS)
-
-    if valid_length == 0:
-        raise ValueError("Sequence contains no standard amino acids.")
-
     return {
-        f"aa_{aa}": counts[aa] / valid_length
+        f"aa_{aa}": counts[aa] / len(sequence)
         for aa in AMINO_ACIDS
     }
 

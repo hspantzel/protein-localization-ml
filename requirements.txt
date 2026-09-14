@@ -8,3 +8,4 @@ transformers
 tqdm
 jupyter
 ipykernel
+pytest
