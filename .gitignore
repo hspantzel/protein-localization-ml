@@ -216,3 +216,16 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project data
+data/raw/
+data/processed/
+
+# Trained models / large weights
+models/*.pt
+models/*.pth
+models/*.bin
+models/*.safetensors
+
+# Secrets
+.env
