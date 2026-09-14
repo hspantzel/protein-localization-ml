@@ -1,0 +1,10 @@
+{
+    "nucleoplasm": 0.36,
+    "cytosol": 0.46,
+    "vesicles": 0.58,
+    "plasma_membrane": 0.63,
+    "mitochondria": 0.72,
+    "golgi_apparatus": 0.65,
+    "nucleoli": 0.78,
+    "endoplasmic_reticulum": 0.76
+}
