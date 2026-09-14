@@ -38,17 +38,30 @@ ESM_F1 = [
 
 def plot_overall_comparison():
     model_names = [
-        "Amino-acid\ncomposition",
-        "ESM-2",
+        "AA\nBaseline",
+        "ESM-2 +\nLogReg",
+        "ESM-2 +\nNN",
+        "ESM-2 + NN\nTuned",
     ]
 
-    micro_scores = [0.320, 0.385]
-    macro_scores = [0.286, 0.331]
+    micro_scores = [
+        0.320,
+        0.385,
+        0.401,
+        0.484,
+    ]
+
+    macro_scores = [
+        0.286,
+        0.331,
+        0.356,
+        0.415,
+    ]
 
     x = np.arange(len(model_names))
     width = 0.35
 
-    plt.figure(figsize=(8, 6))
+    plt.figure(figsize=(10, 6))
 
     plt.bar(
         x - width / 2,
@@ -66,8 +79,8 @@ def plot_overall_comparison():
 
     plt.xticks(x, model_names)
     plt.ylabel("F1 score")
-    plt.ylim(0, 0.5)
-    plt.title("Baseline vs ESM-2 Protein Embeddings")
+    plt.ylim(0, 0.6)
+    plt.title("Protein Localization Model Comparison")
     plt.legend()
     plt.tight_layout()
 
